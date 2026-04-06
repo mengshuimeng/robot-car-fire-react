@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#021121"/>
+  <g stroke="#123d6c" stroke-width="2" opacity=".8">
+    <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200M0 630h1200M0 720h1200"/>
+    <path d="M100 0v800M220 0v800M340 0v800M460 0v800M580 0v800M700 0v800M820 0v800M940 0v800M1060 0v800"/>
+  </g>
+  <g fill="none" stroke="#2ed2ee" stroke-width="5" opacity=".45">
+    <path d="M40 610 C180 470, 340 520, 470 360 S720 130, 980 250 S1120 360, 1160 210"/>
+    <path d="M90 160 C220 220, 310 260, 430 200 S650 110, 1080 190"/>
+    <path d="M310 780 C380 600, 480 500, 560 360 S720 100, 770 10"/>
+  </g>
+  <g fill="#7ee7ff" font-family="Arial" font-size="28">
+    <text x="110" y="620">North Park</text>
+    <text x="760" y="535">West River Rd</text>
+    <text x="650" y="310">Longhu Plaza</text>
+    <text x="930" y="210">University Area</text>
+    <text x="190" y="225">Smart Campus</text>
+  </g>
+  <circle cx="600" cy="372" r="18" fill="#92fbff"/>
+  <circle cx="600" cy="372" r="42" fill="none" stroke="#92fbff" opacity=".45"/>
+  <text x="520" y="420" fill="#c8f5ff" font-size="24" font-family="Arial">Robot Patrol Position</text>
+</svg>

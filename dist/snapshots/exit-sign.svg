@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#07182f"/>
+  <rect x="140" y="120" width="1000" height="460" rx="28" fill="#0f2037" stroke="#2ed2ee" stroke-width="6"/>
+  <rect x="300" y="210" width="680" height="220" rx="24" fill="#11a36f"/>
+  <text x="360" y="350" fill="#effff9" font-size="110" font-family="Arial Black">EXIT</text>
+  <path d="M270 322 h-100" stroke="#effff9" stroke-width="28" stroke-linecap="round"/>
+  <path d="M190 270 l-74 52 74 52" fill="none" stroke="#effff9" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="90" y="72" fill="#7ee7ff" font-size="42" font-family="Arial">Exit Sign Snapshot</text>
+  <text x="90" y="660" fill="#c8f5ff" font-size="28" font-family="Arial">Point B-01 / Local static asset</text>
+</svg>

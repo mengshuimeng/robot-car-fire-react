@@ -1,127 +1,91 @@
-# 机器狗智能消防平台 React 项目
+# 智慧校园消防管控平台
 
-这是一个基于 **React + Vite** 的本地前端项目，
+基于 `React + Vite` 的大屏前端项目，当前已经完成组件化重构、mock 数据分层、视频三模式支持和巡检任务状态流转，适合作为后续联调骨架继续开发。
 
-## 一、启动方法
-
-先确保你的电脑已经安装：
-- Node.js 18 或 20
-- npm
-
-在项目目录打开终端后执行：
+## 启动
 
 ```bash
 npm install
 npm run dev
 ```
 
-浏览器打开：
+默认地址：
 
-```bash
+```text
 http://localhost:5173
 ```
 
-## 二、打包
+生产构建：
 
 ```bash
 npm run build
 ```
 
-打包结果会输出到 `dist` 目录。
-
-## 三、项目结构
+## 静态资源约定
 
 ```text
-robot-dog-fire-react/
-├─ index.html
-├─ package.json
-├─ vite.config.js
-├─ src/
-│  ├─ main.jsx
-│  ├─ App.jsx
-│  └─ styles.css
-└─ public/
+public/
+├─ demo.mp4
+├─ scenes/
+│  └─ campus-fire-scene.svg
+└─ snapshots/
+   ├─ extinguisher.svg
+   ├─ exit-sign.svg
+   ├─ hydrant.svg
+   └─ passageway.svg
 ```
 
-## 四、你后续最应该改的地方
+- 演示视频放在 `public/demo.mp4`
+- 快照图放在 `public/snapshots/`
+- 场景背景图放在 `public/scenes/`
 
-### 1. 接后端接口
-最简单的做法：
+## Mock 开关
 
-```js
-useEffect(() => {
-  fetch('http://你的后端接口地址/api/dashboard')
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-    })
-}, [])
-```
+项目通过 `VITE_USE_MOCK` 统一控制 mock 与真实接口切换。
 
-然后把接口返回的数据替换到页面里。
-
-### 3. 替换中间视频区域
-现在中间是模拟图形，不是真视频。
-后面你可以替换成：
-
-- `<img src="视频流地址" />`
-- `<video src="本地视频地址" controls />`
-- WebRTC / RTSP 转流后的播放器
-
-### 4. 替换左侧地图
-现在是纯样式模拟。
-后面可以接：
-
-- 高德地图 JS API
-- 百度地图
-- ECharts 地图
-- 自己的园区平面图背景
-
-### 5. 报告区接大模型结果
-右下角“算法分析识别报告”现在是静态文本。
-你后面可以把 OCR、识别结果、风险分析、整改建议都从接口传进来。
-
-## 五、推荐修改顺序
-
-先不要急着全改，按这个顺序最稳：
-
-1. 先把页面本地跑起来
-2. 先改静态文字和表格数据
-3. 再接报警表格接口
-4. 再接识别分类状态
-5. 再换中间视频区域
-6. 最后再接地图和报告区
-
-## 六、部署建议
-
-前端开发阶段用：
+开发环境默认：
 
 ```bash
-npm run dev
+VITE_USE_MOCK=true
 ```
 
-正式部署时：
+位置：
 
-```bash
-npm run build
+- `.env.development`
+- `.env.example`
+
+切到真实接口时，将 `VITE_USE_MOCK=false`，然后在 [dashboardApi.js](/d:/Documents/code/html/robot-car-fire-react/src/services/dashboardApi.js) 中补齐真实接口地址即可。
+
+## 联调入口
+
+- 总览/场景/统计/视频配置：`getDashboardSummary`、`getStats`、`getVideoConfig`
+- 巡检基础信息：`getInspectionInfo`
+- 报警表格：`getAlarmList`
+- 结构化报告：`getRecognitionReport`
+- 快照数据：`getSnapshots`
+
+这些函数都在 [dashboardApi.js](/d:/Documents/code/html/robot-car-fire-react/src/services/dashboardApi.js)，字段映射集中在 [transform.js](/d:/Documents/code/html/robot-car-fire-react/src/services/transform.js)。
+
+## 常用修改点
+
+- 改 demo 视频地址：`src/data/mockDashboard.js` 的 `mockVideoConfig.src`
+- 改真实流地址：`src/data/mockDashboard.js` 的 `mockVideoConfig.streamSrc`
+- 改默认 tab / 识别类型 / mock 开关：`src/config/dashboard.js`
+- 改实时场景窗口形态：`src/components/left/MapView.jsx`
+- 改视频三模式渲染：`src/components/center/VideoPanel.jsx`
+
+## 当前结构
+
+```text
+src/
+├─ assets/
+├─ components/
+├─ config/
+├─ data/
+├─ hooks/
+├─ services/
+├─ utils/
+├─ App.jsx
+├─ main.jsx
+└─ styles.css
 ```
-
-然后把 `dist` 部署到：
-
-- Nginx
-- 宝塔
-- GitHub Pages（纯静态可行）
-- Vercel / Netlify
-- 你自己的服务器
-
-## 七、额外提醒
-
-这版是“可落地的 React 页面骨架”，不是完整业务系统。
-
-现在已经适合你做这些事情：
-- 继续改 UI
-- 接 Flask / SpringBoot / Node 后端
-- 换真实图片和视频
-- 接识别结果接口
-- 后面再拆成多个组件
-# robot-car-fire-react

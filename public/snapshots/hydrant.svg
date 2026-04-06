@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b2248"/>
+      <stop offset="100%" stop-color="#07152d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="120" y="110" width="700" height="500" rx="24" fill="#dae4ef" stroke="#8da3b9" stroke-width="18"/>
+  <rect x="120" y="160" width="700" height="26" fill="#be2626"/>
+  <circle cx="635" cy="212" r="42" fill="#d92c2c" stroke="#fff" stroke-width="12"/>
+  <circle cx="745" cy="225" r="24" fill="#f05353" stroke="#fff" stroke-width="8"/>
+  <ellipse cx="920" cy="250" rx="90" ry="68" fill="#f0ede7" stroke="#cbc3b8" stroke-width="8"/>
+  <rect x="985" y="0" width="295" height="720" fill="#e2ddd6"/>
+  <rect x="150" y="585" width="550" height="90" fill="#cfc9c1" stroke="#8da3b9" stroke-width="10"/>
+  <text x="84" y="72" fill="#7ee7ff" font-size="42" font-family="Arial">Hydrant Snapshot</text>
+  <text x="84" y="688" fill="#c8f5ff" font-size="28" font-family="Arial">Corridor 2 / Local static asset</text>
+</svg>
