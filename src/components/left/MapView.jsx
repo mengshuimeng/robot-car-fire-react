@@ -18,7 +18,7 @@ function MockMap({ markers, robotPosition }) {
 
       <div className="dog-light" style={{ left: robotPosition.left, top: robotPosition.top }}>
         <div className="dot" />
-        <div className="label">机器狗巡检位置</div>
+        <div className="label">小车巡检位置</div>
       </div>
     </div>
   )
@@ -36,7 +36,7 @@ export default function MapView({ mode = 'mock', markers = [], robotPosition, ba
         ))}
         <div className="dog-light" style={{ left: robotPosition.left, top: robotPosition.top }}>
           <div className="dot" />
-          <div className="label">机器狗当前位置</div>
+          <div className="label">小车当前位置</div>
         </div>
       </div>
     )

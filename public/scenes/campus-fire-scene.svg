@@ -78,7 +78,7 @@
     <circle cx="812" cy="792" r="18" fill="#8cf6ff"/>
     <circle cx="812" cy="792" r="42" fill="none" stroke="#8cf6ff" stroke-width="3" opacity=".6"/>
   </g>
-  <text x="748" y="842" fill="#d6fbff" font-size="26" font-family="Microsoft YaHei, Arial">机器狗巡检位置</text>
+  <text x="748" y="842" fill="#d6fbff" font-size="26" font-family="Microsoft YaHei, Arial">小车巡检位置</text>
 
   <g opacity=".22" stroke="#82f2ff" stroke-width="2">
     <line x1="360" y1="280" x2="1230" y2="280"/>

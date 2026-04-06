@@ -124,7 +124,7 @@ export const mockPublicityData = {
   ],
   materials: [
     { name: '消防通道不要堆物', type: '海报', updatedAt: '2026-04-06', owner: '保卫处' },
-    { name: '机器狗巡检现场纪实', type: '短视频', updatedAt: '2026-04-05', owner: '宣传中心' },
+    { name: '小车巡检现场纪实', type: '短视频', updatedAt: '2026-04-05', owner: '宣传中心' },
     { name: '实验室用火用电规范', type: '推文', updatedAt: '2026-04-04', owner: '实验室管理办' },
   ],
 }
