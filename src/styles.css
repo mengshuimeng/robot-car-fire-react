@@ -563,6 +563,26 @@ button {
   gap: 10px;
 }
 
+.building-button,
+.quick-action,
+.filter-chip {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.building-button {
+  text-align: left;
+}
+
+.building-button.is-selected,
+.quick-action.is-active,
+.filter-chip.is-active {
+  border-color: rgba(126, 231, 255, 0.55);
+  box-shadow: 0 0 0 1px rgba(126, 231, 255, 0.2) inset;
+  background: rgba(8, 52, 99, 0.96);
+}
+
 .building-head,
 .queue-title-row,
 .timeline-title-row {
@@ -630,6 +650,12 @@ button {
   gap: 12px;
 }
 
+.overview-split {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+}
+
 .distribution-row,
 .materials-row {
   display: grid;
@@ -680,6 +706,56 @@ button {
   font-size: 13px;
 }
 
+.detail-card {
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  background: rgba(6, 31, 63, 0.88);
+  border-radius: 14px;
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+}
+
+.detail-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.detail-text {
+  margin: 0;
+  color: rgba(210, 239, 255, 0.8);
+  line-height: 1.7;
+}
+
+.detail-metrics {
+  display: grid;
+  gap: 8px;
+  color: rgba(200, 235, 255, 0.78);
+  font-size: 13px;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.quick-action {
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  border-radius: 14px;
+  background: rgba(6, 31, 63, 0.88);
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+  text-align: left;
+}
+
+.quick-action span {
+  color: rgba(200, 235, 255, 0.74);
+  font-size: 13px;
+}
+
 .campaign-hero {
   display: grid;
   grid-template-columns: 1.4fr 0.8fr;
@@ -708,6 +784,20 @@ button {
 
 .campaign-progress strong {
   font-size: 34px;
+}
+
+.filter-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.filter-chip {
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  border-radius: 999px;
+  background: rgba(6, 31, 63, 0.88);
+  padding: 8px 12px;
 }
 
 .materials-row {
@@ -749,6 +839,12 @@ td {
 tbody tr {
   border-top: 1px solid rgba(34, 211, 238, 0.1);
   background: rgba(4, 31, 64, 0.72);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: rgba(9, 63, 110, 0.82);
 }
 
 tbody tr.is-highlight {
@@ -1098,7 +1194,9 @@ tbody tr.is-highlight {
   .hero-strip,
   .module-grid-overview,
   .module-grid-publicity,
-  .campaign-hero {
+  .campaign-hero,
+  .overview-split,
+  .quick-actions {
     grid-template-columns: 1fr;
   }
 
@@ -1132,6 +1230,12 @@ tbody tr.is-highlight {
   .trend-bars {
     grid-template-columns: repeat(3, 1fr);
     height: auto;
+  }
+
+  .distribution-row,
+  .materials-row,
+  .timeline-item {
+    grid-template-columns: 1fr;
   }
 
   .distribution-row,

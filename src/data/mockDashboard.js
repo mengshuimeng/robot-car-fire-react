@@ -73,10 +73,10 @@ export const mockOverviewData = {
     { label: '高风险区域', value: '2', unit: '处', tone: 'danger', trend: '需复核' },
   ],
   buildingStatus: [
-    { name: '第一教学楼', devices: 236, onlineRate: '98%', risk: '低风险', tone: 'success' },
-    { name: '图书馆', devices: 188, onlineRate: '96%', risk: '低风险', tone: 'success' },
-    { name: '实验中心', devices: 154, onlineRate: '91%', risk: '中风险', tone: 'info' },
-    { name: '学生宿舍 A 区', devices: 322, onlineRate: '89%', risk: '高风险', tone: 'danger' },
+    { name: '第一教学楼', devices: 236, onlineRate: '98%', risk: '低风险', tone: 'success', inspector: '王敏', pending: 1, detail: '今日完成 3 轮自动巡检，教学楼东翼灭火器复核已通过。' },
+    { name: '图书馆', devices: 188, onlineRate: '96%', risk: '低风险', tone: 'success', inspector: '周宁', pending: 0, detail: '图书馆主阅览区消防栓和疏散标志状态稳定，夜间巡更待执行。' },
+    { name: '实验中心', devices: 154, onlineRate: '91%', risk: '中风险', tone: 'info', inspector: '李哲', pending: 2, detail: '实验中心存在两处高温区域待复核，建议增加通道摄像头联动。' },
+    { name: '学生宿舍 A 区', devices: 322, onlineRate: '89%', risk: '高风险', tone: 'danger', inspector: '刘洋', pending: 4, detail: '宿舍 A 区 3 层通道占用告警反复出现，需辅导员与宿管共同介入。' },
   ],
   warningTrend: [
     { period: '08:00', value: 2 },
@@ -97,6 +97,11 @@ export const mockOverviewData = {
     { time: '12:24', title: '宿舍 A 区发现消防通道占用', detail: '已派发整改工单，要求 30 分钟内处理', tone: 'warning' },
     { time: '12:36', title: '实验中心消防栓柜复核通过', detail: '现场复拍与维护台账已同步', tone: 'info' },
   ],
+  quickActions: [
+    { label: '查看高风险区域', hint: '聚焦宿舍 A 区与实验中心', tone: 'danger' },
+    { label: '导出今日消防简报', hint: '下载管理层汇报材料', tone: 'info' },
+    { label: '同步整改工单', hint: '推送到后勤与保卫处', tone: 'success' },
+  ],
 }
 
 export const mockPublicityData = {
@@ -116,6 +121,7 @@ export const mockPublicityData = {
     { id: 'P-01', title: '宿舍消防通道规范', channel: '宿舍电子屏', schedule: '04-08 19:00', status: '待审核', tone: 'warning' },
     { id: 'P-02', title: '灭火器使用四步法', channel: '校园公众号', schedule: '04-09 09:00', status: '已排期', tone: 'info' },
     { id: 'P-03', title: '实验室火灾逃生要点', channel: '实验楼大厅屏', schedule: '04-10 14:00', status: '制作中', tone: 'cyan' },
+    { id: 'P-04', title: '机器狗巡检周报短视频', channel: '校园视频号', schedule: '04-11 18:00', status: '待审核', tone: 'warning' },
   ],
   activities: [
     { name: '消防知识快闪答题', audience: '全校学生', place: '图书馆广场', status: '进行中', tone: 'success' },
@@ -127,4 +133,5 @@ export const mockPublicityData = {
     { name: '小车巡检现场纪实', type: '短视频', updatedAt: '2026-04-05', owner: '宣传中心' },
     { name: '实验室用火用电规范', type: '推文', updatedAt: '2026-04-04', owner: '实验室管理办' },
   ],
+  channels: ['全部', '宿舍电子屏', '校园公众号', '实验楼大厅屏', '校园视频号'],
 }

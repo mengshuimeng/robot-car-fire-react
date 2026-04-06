@@ -1,7 +1,18 @@
+import { useMemo, useState } from 'react'
 import Panel from '../layout/Panel'
 import StatusBadge from '../common/StatusBadge'
 
 export default function PublicityDashboard({ publicityData }) {
+  const [activeChannel, setActiveChannel] = useState(publicityData.channels[0])
+
+  const filteredQueue = useMemo(() => {
+    if (activeChannel === '全部') {
+      return publicityData.contentQueue
+    }
+
+    return publicityData.contentQueue.filter((item) => item.channel === activeChannel)
+  }, [activeChannel, publicityData.contentQueue])
+
   return (
     <div className="module-page">
       <Panel title="宣传任务总览" right={<span className="mini-tag">消防宣传月</span>} className="campaign-panel">
@@ -35,8 +46,19 @@ export default function PublicityDashboard({ publicityData }) {
 
       <div className="module-grid module-grid-publicity">
         <Panel title="内容排期队列" right={<span className="mini-tag">待执行</span>}>
+          <div className="filter-chips">
+            {publicityData.channels.map((channel) => (
+              <button
+                key={channel}
+                className={`filter-chip ${activeChannel === channel ? 'is-active' : ''}`}
+                onClick={() => setActiveChannel(channel)}
+              >
+                {channel}
+              </button>
+            ))}
+          </div>
           <div className="queue-list">
-            {publicityData.contentQueue.map((item) => (
+            {filteredQueue.map((item) => (
               <article key={item.id} className="queue-card">
                 <div className="queue-title-row">
                   <strong>{item.title}</strong>

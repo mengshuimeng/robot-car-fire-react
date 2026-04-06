@@ -23,6 +23,7 @@ export default function App() {
   const [activeType, setActiveType] = useState(DASHBOARD_CONFIG.defaultActiveType)
   const [inspectionStatus, setInspectionStatus] = useState('idle')
   const [videoMode, setVideoMode] = useState(DASHBOARD_CONFIG.defaultVideoMode)
+  const [selectedAlarmRowId, setSelectedAlarmRowId] = useState(null)
 
   const {
     loading,
@@ -101,6 +102,11 @@ export default function App() {
     setInspectionStatus((current) => (current === 'running' ? 'finished' : current))
   }
 
+  const handleAlarmRowSelect = (row) => {
+    setSelectedAlarmRowId(row.id)
+    setActiveType(row.type)
+  }
+
   const inspectionDashboard = (
     <div className="grid">
       <div className="stack">
@@ -134,6 +140,8 @@ export default function App() {
           loading={loadingState.alarms}
           inspectionStatus={inspectionStatus}
           error={errors.alarms}
+          onRowSelect={handleAlarmRowSelect}
+          selectedRowId={selectedAlarmRowId}
         />
       </div>
 

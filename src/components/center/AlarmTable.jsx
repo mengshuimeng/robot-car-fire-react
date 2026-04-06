@@ -3,7 +3,7 @@ import StatusBadge from '../common/StatusBadge'
 import EmptyState from '../common/EmptyState'
 import LoadingBlock from '../common/LoadingBlock'
 
-export default function AlarmTable({ rows, allRows, highlightRowId, activeType, loading, inspectionStatus, error }) {
+export default function AlarmTable({ rows, allRows, highlightRowId, activeType, loading, inspectionStatus, error, onRowSelect, selectedRowId }) {
   return (
     <Panel title="实时报警信息数据" right={<button className="report-btn">下载</button>}>
       {loading ? (
@@ -31,7 +31,11 @@ export default function AlarmTable({ rows, allRows, highlightRowId, activeType, 
             </thead>
             <tbody>
               {rows.map((row) => (
-                <tr key={row.id} className={row.id === highlightRowId || row.result === activeType ? 'is-highlight' : ''}>
+                <tr
+                  key={row.id}
+                  className={row.id === selectedRowId || row.id === highlightRowId || row.result === activeType ? 'is-highlight' : ''}
+                  onClick={() => onRowSelect?.(row)}
+                >
                   <td>{row.id}</td>
                   <td>{row.deviceName}</td>
                   <td>{row.identifyTime}</td>
